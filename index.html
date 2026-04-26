@@ -3,20 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ИЗКОП-25 ЕООД — Строително-монтажни работи | Перник</title>
+<title>ИЗКОП-25 ЕООД — Строителство | Перник</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --black: #0d0d0d;
     --yellow: #f5c400;
-    --orange: #e05c00;
-    --gray: #1c1c1c;
+    --gray: #1a1a1a;
     --light: #f0ece4;
-    --mid: #888;
+    --mid: #777;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -27,327 +25,184 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 48px;
-    background: rgba(13,13,13,0.92);
+    background: rgba(13,13,13,0.95);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(245,196,0,0.15);
+    border-bottom: 1px solid rgba(245,196,0,0.12);
   }
   .nav-logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 3px;
-    color: var(--yellow);
+    font-size: 1.6rem; letter-spacing: 3px; color: var(--yellow);
   }
   .nav-logo span { color: var(--light); }
   nav ul { list-style: none; display: flex; gap: 36px; }
   nav ul a {
     text-decoration: none; color: var(--light);
-    font-size: 0.78rem; font-weight: 600;
+    font-size: 0.75rem; font-weight: 600;
     letter-spacing: 2px; text-transform: uppercase;
     transition: color 0.2s;
   }
   nav ul a:hover { color: var(--yellow); }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 0 48px 80px;
     position: relative;
     background:
-      linear-gradient(170deg, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.85) 60%, var(--black) 100%),
+      linear-gradient(170deg, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.8) 55%, var(--black) 100%),
       url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=80') center/cover no-repeat;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 80px,
-      rgba(245,196,0,0.03) 80px, rgba(245,196,0,0.03) 81px
-    );
-    pointer-events: none;
   }
   .hero-tag {
-    font-size: 0.72rem; font-weight: 600;
+    font-size: 0.7rem; font-weight: 600;
     letter-spacing: 4px; text-transform: uppercase;
-    color: var(--yellow); margin-bottom: 20px;
+    color: var(--yellow); margin-bottom: 18px;
     animation: fadeUp 0.8s ease both;
   }
   .hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(4rem, 10vw, 9rem);
-    line-height: 0.92;
-    letter-spacing: 2px;
+    line-height: 0.92; letter-spacing: 2px;
     animation: fadeUp 0.8s 0.15s ease both;
   }
-  .hero h1 em {
-    display: block; color: var(--yellow);
-    font-style: normal;
-  }
+  .hero h1 em { display: block; color: var(--yellow); font-style: normal; }
   .hero-sub {
-    margin-top: 28px; max-width: 520px;
-    font-size: 1rem; line-height: 1.7; color: #c0b99a;
+    margin-top: 24px; max-width: 480px;
+    font-size: 1rem; line-height: 1.7; color: #b0a990;
     animation: fadeUp 0.8s 0.3s ease both;
   }
   .hero-cta {
-    margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 36px;
     animation: fadeUp 0.8s 0.45s ease both;
   }
-  .btn {
-    display: inline-block; padding: 14px 36px;
-    font-family: 'Barlow', sans-serif; font-weight: 600;
-    font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
-    text-decoration: none; cursor: pointer;
-    transition: all 0.25s;
-    border: none;
-  }
-  .btn-primary {
+  .btn-call {
+    display: inline-block; padding: 15px 40px;
     background: var(--yellow); color: var(--black);
+    font-family: 'Barlow', sans-serif; font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s, transform 0.2s;
   }
-  .btn-primary:hover { background: #ffd500; transform: translateY(-2px); }
-  .btn-outline {
-    background: transparent; color: var(--light);
-    border: 1px solid rgba(240,236,228,0.4);
-  }
-  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+  .btn-call:hover { background: #ffd500; transform: translateY(-2px); }
 
-  .hero-badge {
-    position: absolute; top: 120px; right: 60px;
-    width: 130px; height: 130px;
-    border: 1px solid rgba(245,196,0,0.3);
-    border-radius: 50%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    animation: spin 30s linear infinite;
-  }
-  .hero-badge-inner {
-    font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--yellow); line-height: 1.6;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── STATS ── */
-  .stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid rgba(245,196,0,0.2);
-    border-bottom: 1px solid rgba(245,196,0,0.2);
-  }
-  .stat {
-    padding: 48px;
-    border-right: 1px solid rgba(245,196,0,0.1);
-    transition: background 0.3s;
-  }
-  .stat:last-child { border-right: none; }
-  .stat:hover { background: rgba(245,196,0,0.04); }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem; color: var(--yellow); line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--mid);
-    margin-top: 8px;
-  }
-
-  /* ── SECTION GENERIC ── */
-  section { padding: 100px 48px; }
+  /* SERVICES */
+  #услуги { padding: 90px 48px; background: var(--gray); }
   .section-tag {
-    font-size: 0.7rem; font-weight: 600;
+    font-size: 0.68rem; font-weight: 600;
     letter-spacing: 4px; text-transform: uppercase;
-    color: var(--yellow); margin-bottom: 16px;
+    color: var(--yellow); margin-bottom: 14px;
   }
   h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1; letter-spacing: 1px;
-    margin-bottom: 24px;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: 1px; margin-bottom: 48px;
   }
-  .lead {
-    font-size: 1.05rem; line-height: 1.8;
-    color: #bbb; max-width: 640px;
-  }
-
-  /* ── SERVICES ── */
-  #услуги { background: var(--gray); }
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2px; margin-top: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
   }
   .service-card {
-    background: var(--black);
-    padding: 40px 32px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
+    background: var(--black); padding: 36px 28px;
+    position: relative; overflow: hidden; transition: background 0.3s;
   }
-  .service-card::before {
-    content: '';
-    position: absolute; bottom: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--yellow);
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.35s ease;
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 2px; background: var(--yellow);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
   }
-  .service-card:hover { background: #161616; }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-icon {
-    font-size: 2rem; margin-bottom: 20px;
-    display: block;
-  }
+  .service-card:hover { background: #141414; }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon { font-size: 1.8rem; margin-bottom: 16px; display: block; }
   .service-card h3 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem; letter-spacing: 1px;
-    color: var(--light); margin-bottom: 12px;
+    font-size: 1.25rem; letter-spacing: 1px; margin-bottom: 10px;
   }
-  .service-card p {
-    font-size: 0.88rem; line-height: 1.7; color: var(--mid);
-  }
+  .service-card p { font-size: 0.85rem; line-height: 1.65; color: var(--mid); }
 
-  /* ── EQUIPMENT ── */
-  #техника { background: var(--black); }
-  .equip-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 24px; margin-top: 60px;
-  }
+  /* EQUIPMENT */
+  #техника { padding: 90px 48px; background: var(--black); }
+  .equip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .equip-card {
-    border: 1px solid rgba(245,196,0,0.15);
-    padding: 40px; position: relative;
-    transition: border-color 0.3s, transform 0.3s;
+    border: 1px solid rgba(245,196,0,0.15); padding: 36px;
+    position: relative; transition: border-color 0.3s, transform 0.25s;
   }
-  .equip-card:hover {
-    border-color: var(--yellow);
-    transform: translateY(-4px);
-  }
+  .equip-card:hover { border-color: var(--yellow); transform: translateY(-3px); }
   .equip-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem; color: rgba(245,196,0,0.08);
-    position: absolute; top: 16px; right: 24px;
-    line-height: 1;
+    font-family: 'Bebas Neue', sans-serif; font-size: 4.5rem;
+    color: rgba(245,196,0,0.07); position: absolute; top: 12px; right: 20px; line-height: 1;
   }
   .equip-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem; color: var(--yellow);
-    letter-spacing: 1px; margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
+    color: var(--yellow); letter-spacing: 1px; margin-bottom: 10px;
   }
-  .equip-card p { font-size: 0.9rem; color: #aaa; line-height: 1.7; }
+  .equip-card p { font-size: 0.87rem; color: #999; line-height: 1.65; }
 
-  /* ── ABOUT ── */
-  #за-нас {
-    background: var(--gray);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
+  /* CONTACTS */
+  #контакти { padding: 90px 48px; background: var(--gray); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
   }
-  .about-img {
-    width: 100%; aspect-ratio: 4/3; object-fit: cover;
-    filter: grayscale(40%) contrast(1.1);
+  .contact-card {
+    background: var(--black); padding: 36px 28px;
+    display: flex; flex-direction: column; gap: 10px;
   }
-  .about-details { margin-top: 40px; }
-  .detail-row {
-    display: flex; justify-content: space-between;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(245,196,0,0.1);
-    font-size: 0.88rem;
-  }
-  .detail-row dt { color: var(--mid); letter-spacing: 1px; text-transform: uppercase; font-size: 0.75rem; }
-  .detail-row dd { color: var(--light); font-weight: 600; }
-
-  /* ── CONTACT ── */
-  #контакти {
-    background: var(--black);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: start;
-  }
-  .contact-list { margin-top: 40px; display: flex; flex-direction: column; gap: 28px; }
-  .contact-item { display: flex; gap: 20px; align-items: flex-start; }
-  .contact-icon {
-    width: 44px; height: 44px; min-width: 44px;
-    background: rgba(245,196,0,0.1);
-    border: 1px solid rgba(245,196,0,0.25);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-  }
-  .contact-item h4 {
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 4px;
-  }
-  .contact-item a, .contact-item p {
-    color: var(--light); text-decoration: none;
-    font-size: 1rem; transition: color 0.2s;
-  }
-  .contact-item a:hover { color: var(--yellow); }
-
-  .contact-form { display: flex; flex-direction: column; gap: 16px; }
-  .contact-form h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem; letter-spacing: 1px; margin-bottom: 8px;
-  }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group label {
-    font-size: 0.7rem; font-weight: 600;
+  .contact-card .icon { font-size: 1.6rem; }
+  .contact-card h4 {
+    font-size: 0.68rem; font-weight: 600;
     letter-spacing: 2px; text-transform: uppercase; color: var(--mid);
   }
-  .form-group input,
-  .form-group textarea {
-    background: var(--gray); border: 1px solid rgba(245,196,0,0.15);
-    color: var(--light); font-family: 'Barlow', sans-serif;
-    font-size: 0.95rem; padding: 12px 16px;
-    outline: none; transition: border-color 0.2s; resize: vertical;
+  .contact-card a, .contact-card p {
+    font-size: 1rem; color: var(--light); text-decoration: none; transition: color 0.2s;
   }
-  .form-group input:focus,
-  .form-group textarea:focus { border-color: var(--yellow); }
-  .form-group textarea { min-height: 120px; }
-  .form-submit {
-    background: var(--yellow); color: var(--black);
-    font-family: 'Barlow', sans-serif; font-weight: 700;
-    font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
-    padding: 15px 32px; border: none; cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    align-self: flex-start;
-  }
-  .form-submit:hover { background: #ffd500; transform: translateY(-2px); }
+  .contact-card a:hover { color: var(--yellow); }
+  .contact-card .note { font-size: 0.78rem; color: var(--mid); margin-top: 2px; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #080808;
-    padding: 40px 48px;
-    display: flex; justify-content: space-between; align-items: center;
+  /* ABOUT STRIP */
+  .about-strip {
+    padding: 50px 48px; background: var(--black);
     border-top: 1px solid rgba(245,196,0,0.1);
-    flex-wrap: wrap; gap: 16px;
+    display: flex; gap: 48px; flex-wrap: wrap; align-items: center;
+  }
+  .about-strip p {
+    font-size: 0.75rem; color: var(--mid);
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .about-strip strong { color: var(--light); font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    background: #080808; padding: 28px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    border-top: 1px solid rgba(245,196,0,0.08);
   }
   .footer-logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem; letter-spacing: 3px; color: var(--yellow);
+    font-size: 1.3rem; letter-spacing: 3px; color: var(--yellow);
   }
-  .footer-copy {
-    font-size: 0.75rem; color: var(--mid); letter-spacing: 1px;
-  }
-  .footer-eik {
-    font-size: 0.72rem; color: #555; letter-spacing: 1px;
-  }
+  .footer-copy { font-size: 0.72rem; color: #444; }
 
-  /* ── MOBILE ── */
+  /* MOBILE */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
+    nav { padding: 16px 20px; }
     nav ul { display: none; }
-    .hero { padding: 0 24px 60px; }
-    .hero-badge { display: none; }
-    .stats { grid-template-columns: 1fr; }
-    .stat { border-right: none; border-bottom: 1px solid rgba(245,196,0,0.1); padding: 32px 24px; }
-    section { padding: 70px 24px; }
-    #за-нас, #контакти { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 0 20px 56px; }
+    #услуги, #техника, #контакти { padding: 60px 20px; }
     .equip-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+    .about-strip { padding: 36px 20px; gap: 20px; }
+    footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -359,77 +214,54 @@
   <ul>
     <li><a href="#услуги">Услуги</a></li>
     <li><a href="#техника">Техника</a></li>
-    <li><a href="#за-нас">За нас</a></li>
     <li><a href="#контакти">Контакти</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">
-    <div class="hero-badge-inner">Перник<br>и<br>регион<br>⚙</div>
-  </div>
   <p class="hero-tag">Строително-монтажни работи · Перник</p>
-  <h1>КОПАЕМ<em>СТРОИМ</em>УСПЯВАМЕ</h1>
-  <p class="hero-sub">Специализирана строителна фирма с собствена тежка техника, опитен екип и технически ръководител. Изпълняваме всякакъв вид строително-монтажни работи — от изкоп до завършен обект.</p>
+  <h1>КОПАЕМ<em>СТРОИМ</em></h1>
+  <p class="hero-sub">Собствена тежка техника, квалифициран екип и технически ръководител. Изпълняваме всякакъв вид строителни работи в Перник и региона.</p>
   <div class="hero-cta">
-    <a href="#контакти" class="btn btn-primary">Свържете се с нас</a>
-    <a href="#услуги" class="btn btn-outline">Вижте услугите</a>
+    <a href="tel:+359899905497" class="btn-call">📞 0899 905 497</a>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">2</div>
-    <div class="stat-label">Вида собствена техника</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Квалифициран екип</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">∞</div>
-    <div class="stat-label">Видове строителство</div>
-  </div>
-</div>
-
 <!-- SERVICES -->
 <section id="услуги">
-  <p class="section-tag">Какво предлагаме</p>
-  <h2>НАШИТЕ УСЛУГИ</h2>
-  <p class="lead">Покриваме целия спектър на строително-монтажните работи — от подготовката на терена до финалното изпълнение.</p>
-
+  <p class="section-tag">Какво правим</p>
+  <h2>УСЛУГИ</h2>
   <div class="services-grid">
     <div class="service-card">
       <span class="service-icon">⛏️</span>
       <h3>Изкопни работи</h3>
-      <p>Широки изкопи, траншеи, строителни ями. Изпълнение с верижен и комбиниран багер за максимална ефективност.</p>
+      <p>Широки изкопи, траншеи, строителни ями с верижен и комбиниран багер.</p>
     </div>
     <div class="service-card">
       <span class="service-icon">🏗️</span>
-      <h3>Ново строителство</h3>
-      <p>Жилищно, промишлено и инфраструктурно строителство. Опитен технически ръководител на всеки обект.</p>
+      <h3>Строителство</h3>
+      <p>Жилищно, промишлено и инфраструктурно строителство от основи до покрив.</p>
     </div>
     <div class="service-card">
       <span class="service-icon">🚧</span>
-      <h3>Земни и насипни работи</h3>
-      <p>Вертикална планировка, уплътняване на терени, транспорт и депониране на земна маса и строителни отпадъци.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🔩</span>
-      <h3>Монтажни работи</h3>
-      <p>Строително-монтажни дейности с квалифицирани работници и стриктно спазване на технологичните изисквания.</p>
+      <h3>Земни работи</h3>
+      <p>Вертикална планировка, уплътняване на терени, транспорт на земна маса.</p>
     </div>
     <div class="service-card">
       <span class="service-icon">💧</span>
       <h3>ВиК трасета</h3>
-      <p>Изкопи и полагане на водопроводни и канализационни тръби. Цялостно изпълнение на трасета.</p>
+      <p>Изкопи и полагане на водопроводни и канализационни тръби.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔩</span>
+      <h3>Монтажни работи</h3>
+      <p>Строително-монтажни дейности с квалифициран екип и технически надзор.</p>
     </div>
     <div class="service-card">
       <span class="service-icon">🏚️</span>
       <h3>Разрушаване</h3>
-      <p>Разрушаване и събаряне на сгради и съоръжения. Извозване и почистване на строителни отпадъци.</p>
+      <p>Събаряне на сгради и съоръжения. Извозване на строителни отпадъци.</p>
     </div>
   </div>
 </section>
@@ -437,115 +269,59 @@
 <!-- EQUIPMENT -->
 <section id="техника">
   <p class="section-tag">Собствена механизация</p>
-  <h2>НАШАТА ТЕХНИКА</h2>
-  <p class="lead">Разполагаме със собствена специализирана строителна техника — без наемане на подизпълнители, без допълнителни разходи за вас.</p>
-
+  <h2>ТЕХНИКА</h2>
   <div class="equip-grid">
     <div class="equip-card">
       <span class="equip-num">01</span>
       <h3>Комбиниран багер</h3>
-      <p>Универсална машина за изкопни и товаро-разтоварни работи. Идеален за строителни площадки с ограничено пространство и разнообразни задачи.</p>
+      <p>Универсална машина за изкопни и товаро-разтоварни работи на строителни площадки.</p>
     </div>
     <div class="equip-card">
       <span class="equip-num">02</span>
       <h3>Верижен багер</h3>
-      <p>Мощна верижна машина за дълбоки изкопи, тежки земни работи и труднодостъпни терени. Осигурява стабилност и прецизност при сложни обекти.</p>
+      <p>За дълбоки изкопи, тежки земни работи и труднодостъпни терени.</p>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="за-нас">
-  <div>
-    <img
-      src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-      alt="Строителна техника на обект"
-      class="about-img"
-    />
-  </div>
-  <div>
-    <p class="section-tag">Кои сме ние</p>
-    <h2>ЗА ФИРМАТА</h2>
-    <p class="lead">ИЗКОП-25 ЕООД е строително дружество от Перник, специализирано в изкопни, земни и строително-монтажни работи. Разполагаме със собствена тежка техника, опитен технически ръководител и квалифицирани работници.</p>
-    <p class="lead" style="margin-top:16px;">Изпълняваме обекти в Перник и региона — за частни клиенти, фирми и публични възложители.</p>
-
-    <dl class="about-details">
-      <div class="detail-row">
-        <dt>Фирма</dt>
-        <dd>ИЗКОП-25 ЕООД</dd>
-      </div>
-      <div class="detail-row">
-        <dt>ЕИК</dt>
-        <dd>208182261</dd>
-      </div>
-      <div class="detail-row">
-        <dt>Седалище</dt>
-        <dd>гр. Перник</dd>
-      </div>
-      <div class="detail-row">
-        <dt>Дейност</dt>
-        <dd>Строително-монтажни работи</dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<!-- CONTACT -->
+<!-- CONTACTS -->
 <section id="контакти">
-  <div>
-    <p class="section-tag">Свържете се</p>
-    <h2>КОНТАКТИ</h2>
-    <p class="lead">Обадете се или изпратете запитване — ще се свържем с вас в рамките на деня за безплатна консултация и оферта.</p>
-
-    <div class="contact-list">
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <h4>Телефон</h4>
-          <a href="tel:+359899905497">0899 905 497</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <h4>Местоположение</h4>
-          <p>гр. Перник, България</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">⏰</div>
-        <div>
-          <h4>Работно време</h4>
-          <p>Пон – Пет: 08:00 – 18:00</p>
-        </div>
-      </div>
+  <p class="section-tag">Свържете се с нас</p>
+  <h2>КОНТАКТИ</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <span class="icon">📞</span>
+      <h4>Телефон</h4>
+      <a href="tel:+359899905497">0899 905 497</a>
+      <p class="note">Пон – Пет, 08:00 – 18:00</p>
     </div>
-  </div>
-
-  <div class="contact-form">
-    <h3>ИЗПРАТЕТЕ ЗАПИТВАНЕ</h3>
-    <p style="font-size:0.85rem;color:#888;margin-bottom:8px;">Опишете вашия обект и ние ще се свържем с вас.</p>
-    <div class="form-group">
-      <label>Вашето име</label>
-      <input type="text" placeholder="Иван Иванов">
+    <div class="contact-card">
+      <span class="icon">📍</span>
+      <h4>Местоположение</h4>
+      <p>гр. Перник, България</p>
+      <p class="note">Работим в Перник и региона</p>
     </div>
-    <div class="form-group">
-      <label>Телефон</label>
-      <input type="tel" placeholder="08XX XXX XXX">
+    <div class="contact-card">
+      <span class="icon">🏢</span>
+      <h4>Фирма</h4>
+      <p>ИЗКОП-25 ЕООД</p>
+      <p class="note">ЕИК: 208182261</p>
     </div>
-    <div class="form-group">
-      <label>Описание на обекта</label>
-      <textarea placeholder="Опишете накратко какво ви е необходимо..."></textarea>
-    </div>
-    <button class="form-submit" onclick="alert('Благодарим за запитването! Ще се свържем с Вас скоро.')">Изпратете →</button>
   </div>
 </section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <p><strong>ИЗКОП-25 ЕООД</strong> · ЕИК 208182261</p>
+  <p>Седалище: <strong>гр. Перник</strong></p>
+  <p>Дейност: <strong>Строително-монтажни работи</strong></p>
+  <p>Регистрация: <strong>Търговски регистър на РБ</strong></p>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">ИЗКОП-25</div>
   <div class="footer-copy">© 2025 ИЗКОП-25 ЕООД. Всички права запазени.</div>
-  <div class="footer-eik">ЕИК: 208182261</div>
 </footer>
 
 </body>
